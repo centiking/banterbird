@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a Banterbird Account</title>
+    <script src="/static/js/app.js" defer></script>
+</head>
+<body>
+    <h1>Create a Banterbird Account</h1>
+    <div>
+        Logged in as: <strong id="username">admin</strong>
+    </div>
+    <div>
+        <h3>New Post</h3>
+        <textarea id="postInput" placeholder="What's on your mind?"></textarea><br>
+        <button onclick="submitPost()">Tweet</button>
+    </div>
+    <hr>
+    <h3>Feed</h3>
+    <div id="feed"></div>
+
+    <template id="post-template">
+        <div class="post">
+            <p><strong class="username"></strong>: <span class="message"></span></p>
+            <small class="timestamp"></small>
+            <hr>
+        </div>
+    </template>
+</body>
+</html>
