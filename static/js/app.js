@@ -9,6 +9,11 @@ function renderPost(post) {
 
 function submitPost() {
     const message = document.getElementById("postInput").value;
+    const usernames = document.getElementById("username").value;
+    renderPost({
+        username: usernames,
+        message: message,
+    });
     console.log("Would post:", message);
     alert("Tweet submitted (not really yet)");
 }
