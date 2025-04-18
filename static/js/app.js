@@ -9,19 +9,18 @@ function renderPost(post) {
 
 function submitPost() {
     const message = document.getElementById("postInput").value;
-    const usernames = document.getElementById("username").value;
-    renderPost({
-        username: usernames,
-        message: message,
-    });
     console.log("Would post:", message);
     alert("Tweet submitted (not really yet)");
 }
 
-window.onload = () => {
-    const hardcodedPost = {
-        username: "admin",
-        message: "Welcome to Banterbird! This post is hardcoded.",
-    };
-    renderPost(hardcodedPost);
+window.onload = async () => {
+    try{
+        const response = await fetch("/api/posts");
+        const posts = await response.json();
+        posts.forEach((post) => {
+            renderPost(post);
+        })
+    } catch(error){
+        console.error("FIXXX ITTTT", error);
+    }
 };
