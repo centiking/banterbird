@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    
     return render_template("index.html")
 
 @app.route('/api/posts', methods=['POST'])
@@ -16,6 +17,10 @@ def add_post():
     with (open("posts.json", "w")) as file:
         json.dump(posts, file, indent=4)
     return jsonify({"status": "success"}), 201
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 
 @app.route('/api/posts')

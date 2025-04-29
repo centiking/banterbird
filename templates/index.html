@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Banterbird</title>
+    <title>Banterbird Login page</title>
     <link rel="stylesheet" href="/static/css/style.css">
     <script src="/static/js/app.js" defer></script>
 </head>
 <body>
     <h1>Banterbird</h1>
     <div>
-        Logged in as: <strong id="username">admin</strong>
+        Logged in as: <strong id="username">anonymous</strong>
     </div>
     <div>
         <h3>New Post</h3>
@@ -16,7 +16,7 @@
         <button onclick="submitPost()">Tweet</button>
     </div>
     <hr>
-    <h3>Feed</h3>
+    <h3 style="text-align: center;">Feed</h3>
     <div id="feed"></div>
 
     <template id="post-template">
@@ -26,5 +26,8 @@
             <hr>
         </div>
     </template>
+    <script>
+          document.getElementById("username").innerText = localStorage.getItem("username");
+    </script>
 </body>
 </html>

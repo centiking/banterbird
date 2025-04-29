@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <script>
+        function login(){
+            const username = document.getElementById("username").value
+            if(username.length > 0){
+                localStorage.setItem("username", username)
+                window.location.href = "/"
+            }else{
+                alert("Please enter a username")
+            }
+        }
+    </script>
+<body>
+    <input id="username", placeholder="Enter the username"/>
+    <button onclick="login()">login</button>
+</body>
+</html>

@@ -1,4 +1,8 @@
-const username = "admin";
+let username = localStorage.getItem("username");
+if(!username){
+  window.location.href = "/login";
+}
+
 
 function renderPost(post) {
     const template = document.getElementById("post-template").content.cloneNode(true);
@@ -6,6 +10,8 @@ function renderPost(post) {
     template.querySelector(".message").innerText = post.message;
     document.getElementById("feed").appendChild(template);
 }
+
+
 
 
 function renderPost(post, isNew = false) {
@@ -21,7 +27,6 @@ function renderPost(post, isNew = false) {
     document.getElementById("feed").appendChild(template);
   }
 }
-
 
 async function submitPost() {
   const message = document.getElementById("postInput").value;
