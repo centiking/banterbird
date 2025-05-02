@@ -45,6 +45,8 @@ async function submitPost() {
   }
 }
 
+
+
 window.onload = async () => {
   try {
     const response = await fetch("/api/posts");
@@ -53,4 +55,15 @@ window.onload = async () => {
   } catch (error) {
     console.error("Error fetching posts:", error);
   }
-};
+}
+
+setInterval( async() => {
+  try {
+    const response = await fetch("/api/posts");
+    const posts = await response.json();
+    document.getElementById("feed").innerHTML = ""; // Clear the feed
+    posts.forEach((post) => renderPost(post));
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+  }
+}, 5000) // Fetch new post every 5 seconds
